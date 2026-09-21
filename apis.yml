@@ -1,23 +1,63 @@
 aid: wallester
 name: Wallester
-description: 'Wallester is a company surfaced via the API Evangelist harvest backlog (source: payments)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Wallester provides a modern card issuing platform that enables businesses to embed financial services directly into their products. Through a robust set of APIs, Wallester offers virtual and physical card issuance, transaction processing, compliance, and risk management tools. Their solution targets fintechs, marketplaces, and SaaS platforms seeking to integrate payment capabilities without building banking infrastructure from scratch. With global coverage and customizable workflows, Wallester aims to simplify the complexities of card issuance and payments for developers and enterprises alike.'
 url: https://raw.githubusercontent.com/api-evangelist/wallester/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:payments
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-09-20 (modular-v1; was harvest)
 specificationVersion: '0.20'
 created: '2026-09-20'
 modified: '2026-09-20'
 tags:
 - Company
-apis: []
+- Payments
+- Card Issuing
+- Fintech
+- API Platform
+apis:
+  - name: Wallester API
+    description: "Wallester provides card issuing and payment APIs as described on their pricing page."
+    humanURL: https://wallester.com/business/pricing
+    baseURL: null
+    openapi:
+      url: null
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: TermsOfService
+  url: https://wallester.com/legal-notice
+- type: StatusPage
+  url: https://status.wallester.com/
+- type: PrivacyPolicy
+  url: https://wallester.com/privacy
+- type: Pricing
+  url: https://wallester.com/business/pricing
+- type: Newsroom
+  url: https://wallester.com/media
+- type: Login
+  url: https://wallester.com/sign-in
+- type: LLMsTxt
+  url: llms/wallester-llms.txt
+- type: DomainSecurity
+  url: security/wallester-domain-security.yml
 - type: Website
   url: https://wallester.com/
+
+x-coverage:
+  state: unreadable
+  reason: js-rendered-docs
+  detail: "Pricing page loads a heavy JavaScript app with no direct OpenAPI spec discovered."
+  evidence:
+    - url: https://api.wallester.com/openapi.json
+      status: 404
+  checked: 2026-09-20
+x-enrichment:
+  date: '2026-09-20'
+  status: enriched
+  artifacts_added: 4
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local
